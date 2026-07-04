@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cal Can Do Construction | Remodeling Excellence Since 2010</title>
+    <title>Cal Can Do Construction | Remodeling Alexandria KY</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --dark-navy: #0b1a2e;
-            --deep-blue: #132a42;
-            --accent-orange: #f47c20;
-            --accent-orange-dark: #d96918;
-            --accent-gold: #e7a530;
-            --warm-gray: #f5f1eb;
-            --off-white: #fefcf9;
-            --text-dark: #1e1e1e;
-            --text-gray: #4a4a4a;
+            --hardhat-yellow: #f5a623;
+            --deep-blue: #0b1f2f;
+            --steel-gray: #2c3e50;
+            --concrete: #f0f2f5;
             --white: #ffffff;
-            --soft-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --danger-red: #d94f2b;
+            --safety-orange: #f76b1c;
+            --text-dark: #1e1e1e;
+            --text-muted: #5c6b7a;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.2);
+            --border-radius: 16px;
+            --transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
         }
 
         * {
@@ -33,22 +34,22 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: 85px;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--off-white);
+            font-family: 'Inter', sans-serif;
+            background: var(--concrete);
             color: var(--text-dark);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Preloader */
-        #preloader {
+        .preloader {
             position: fixed;
             inset: 0;
-            background: #0b1a2e;
+            background: var(--deep-blue);
             z-index: 10000;
             display: flex;
             flex-direction: column;
@@ -56,28 +57,31 @@
             justify-content: center;
             transition: opacity 0.6s ease, visibility 0.6s;
         }
-        #preloader.fade-out {
+        .preloader.hidden {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
         .loader-hammer {
-            font-size: 3.5rem;
-            color: var(--accent-orange);
-            animation: hammerPulse 1.2s infinite ease-in-out;
+            font-size: 4rem;
+            color: var(--hardhat-yellow);
+            animation: swing 1s ease-in-out infinite alternate;
+            transform-origin: top center;
             margin-bottom: 20px;
         }
-        @keyframes hammerPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            25% { transform: scale(1.2) rotate(-5deg); }
-            50% { transform: scale(1) rotate(0deg); }
-            75% { transform: scale(1.2) rotate(5deg); }
+        @keyframes swing {
+            0% { transform: rotate(-15deg); }
+            100% { transform: rotate(15deg); }
         }
         .loader-text {
-            font-family: 'Raleway', sans-serif;
-            color: #e7a530;
-            letter-spacing: 4px;
-            font-weight: 600;
-            font-size: 1.1rem;
+            color: white;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800;
+            letter-spacing: 3px;
+            font-size: 1.4rem;
+        }
+        .loader-text span {
+            color: var(--hardhat-yellow);
         }
 
         /* Navigation */
@@ -87,63 +91,67 @@
             left: 0;
             width: 100%;
             z-index: 999;
-            padding: 18px 50px;
+            padding: 15px 40px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            transition: var(--transition);
+            justify-content: space-between;
+            transition: all 0.4s ease;
             background: transparent;
         }
         .navbar.scrolled {
-            background: rgba(11, 26, 46, 0.97);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
-            padding: 12px 50px;
+            background: rgba(11, 31, 47, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            padding: 12px 40px;
         }
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
+            z-index: 1001;
         }
         .logo-icon {
-            background: var(--accent-orange);
-            width: 44px;
-            height: 44px;
-            border-radius: 8px;
+            width: 48px;
+            height: 48px;
+            background: var(--hardhat-yellow);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(244,124,32,0.4);
+            font-size: 1.8rem;
+            color: var(--deep-blue);
+            box-shadow: 0 6px 18px rgba(245, 166, 35, 0.4);
+            transition: var(--transition);
         }
         .logo-text {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-weight: 700;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: white;
-            line-height: 1.2;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
         }
         .logo-text span {
-            color: var(--accent-gold);
             display: block;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
             font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--hardhat-yellow);
         }
         .nav-links {
             display: flex;
-            gap: 35px;
+            gap: 30px;
             align-items: center;
         }
         .nav-links a {
-            color: rgba(255,255,255,0.85);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
             position: relative;
             transition: color 0.3s;
+            letter-spacing: 0.3px;
         }
         .nav-links a::after {
             content: '';
@@ -152,8 +160,8 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-orange);
-            transition: width 0.3s;
+            background: var(--hardhat-yellow);
+            transition: width 0.3s ease;
         }
         .nav-links a:hover {
             color: white;
@@ -161,368 +169,322 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-        .btn-nav {
-            background: var(--accent-orange);
-            padding: 10px 22px;
+        .btn-estimate {
+            background: var(--safety-orange);
+            padding: 12px 28px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             color: white !important;
-            box-shadow: 0 6px 18px rgba(244,124,32,0.4);
+            box-shadow: 0 8px 20px rgba(247, 107, 28, 0.45);
             transition: var(--transition);
         }
-        .btn-nav:hover {
-            background: var(--accent-orange-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(244,124,32,0.55);
+        .btn-estimate:hover {
+            background: #e55f10;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(247, 107, 28, 0.55);
         }
-        .menu-toggle {
+        .hamburger {
             display: none;
             font-size: 1.8rem;
             color: white;
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(11,26,46,0.85) 0%, rgba(19,42,66,0.75) 100%), 
-                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(11, 31, 47, 0.88) 0%, rgba(44, 62, 80, 0.82) 100%),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
-            padding: 0 50px;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
             position: relative;
         }
         .hero-content {
-            max-width: 700px;
+            max-width: 850px;
             color: white;
-            animation: fadeInUp 1s ease;
+            animation: slideUp 1s ease;
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .hero-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.12);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 40px;
-            font-weight: 500;
             font-size: 0.9rem;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .hero-badge i {
-            color: var(--accent-orange);
-            margin-right: 6px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .hero h1 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 20px;
         }
-        .hero h1 span {
-            color: var(--accent-orange);
+        .hero h1 .highlight {
+            color: var(--hardhat-yellow);
             position: relative;
+            display: inline-block;
         }
         .hero p {
             font-size: 1.2rem;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 30px;
-            max-width: 550px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .hero-btns {
+        .hero-buttons {
             display: flex;
             gap: 20px;
+            justify-content: center;
             flex-wrap: wrap;
         }
         .btn-primary {
-            background: var(--accent-orange);
-            color: white;
-            padding: 14px 35px;
+            background: var(--hardhat-yellow);
+            color: var(--deep-blue);
+            padding: 16px 38px;
             border-radius: 50px;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.5);
             transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(244,124,32,0.5);
-            border: none;
-            cursor: pointer;
         }
         .btn-primary:hover {
-            background: var(--accent-orange-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 14px 35px rgba(244,124,32,0.6);
+            background: #e0941e;
+            transform: translateY(-4px);
         }
-        .btn-outline {
+        .btn-secondary {
             background: transparent;
-            border: 2px solid rgba(255,255,255,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.6);
             color: white;
-            padding: 14px 35px;
+            padding: 16px 38px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
         }
-        .btn-outline:hover {
+        .btn-secondary:hover {
             border-color: white;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
         }
         .hero-stats {
             display: flex;
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 60px;
+            flex-wrap: wrap;
         }
-        .stat-item {
-            text-align: center;
-        }
-        .stat-number {
+        .stat-value {
             font-size: 2.2rem;
             font-weight: 800;
-            color: var(--accent-gold);
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            opacity: 0.9;
+            color: var(--hardhat-yellow);
+            display: block;
         }
 
-        /* Section titles */
+        /* Section Styling */
+        .section {
+            padding: 100px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         .section-title {
             text-align: center;
             margin-bottom: 60px;
         }
         .section-title h2 {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 2.8rem;
             font-weight: 700;
-            color: var(--dark-navy);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--deep-blue);
         }
-        .section-title .underline {
+        .section-title .divider {
             width: 70px;
             height: 4px;
-            background: var(--accent-orange);
+            background: var(--safety-orange);
             margin: 15px auto 0;
             border-radius: 2px;
         }
 
-        /* About Section */
-        .about {
-            padding: 100px 50px;
-            background: var(--white);
-        }
+        /* About */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
-        .about-image {
-            position: relative;
-        }
         .about-image img {
             width: 100%;
-            border-radius: 20px;
-            box-shadow: var(--card-shadow);
-        }
-        .experience-badge {
-            position: absolute;
-            bottom: -25px;
-            right: -25px;
-            background: var(--accent-orange);
-            color: white;
-            padding: 20px 25px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: 700;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        .experience-badge .number {
-            font-size: 2.5rem;
-            line-height: 1;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
         }
         .about-text h3 {
-            font-family: 'Raleway', sans-serif;
             font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--dark-navy);
+            margin-bottom: 20px;
+            color: var(--steel-gray);
         }
-        .about-text p {
-            color: var(--text-gray);
-            margin-bottom: 25px;
-        }
-        .bbb-badge {
+        .bbb-accred {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: #f4f4f4;
+            background: #e9edf2;
             padding: 10px 20px;
-            border-radius: 50px;
+            border-radius: 40px;
             font-weight: 600;
-            color: #2d4f7c;
+            color: #1e3a5f;
         }
 
         /* Services */
-        .services {
-            padding: 100px 50px;
-            background: var(--warm-gray);
-        }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
         }
         .service-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 35px 25px;
+            border-radius: var(--border-radius);
             text-align: center;
-            box-shadow: var(--soft-shadow);
+            box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            border-bottom: 4px solid transparent;
+            border-bottom: 5px solid transparent;
         }
         .service-card:hover {
+            border-bottom-color: var(--hardhat-yellow);
             transform: translateY(-8px);
-            border-bottom-color: var(--accent-orange);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-md);
         }
         .service-icon {
-            font-size: 2.8rem;
-            color: var(--accent-orange);
+            font-size: 2.5rem;
+            color: var(--safety-orange);
             margin-bottom: 20px;
         }
-        .service-card h4 {
-            font-family: 'Raleway', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-        }
 
-        /* Projects */
-        .projects {
-            padding: 100px 50px;
-            background: var(--white);
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-        .project-item {
-            position: relative;
-            border-radius: 18px;
-            overflow: hidden;
-            height: 280px;
-            box-shadow: var(--soft-shadow);
-        }
-        .project-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s ease;
-        }
-        .project-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(11,26,46,0.8), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px;
+        /* Why Us */
+        .why-us {
+            background: var(--deep-blue);
             color: white;
-            opacity: 0.9;
         }
-        .project-item:hover img {
-            transform: scale(1.05);
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .why-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        .why-card i {
+            font-size: 2rem;
+            color: var(--hardhat-yellow);
+            margin-bottom: 15px;
         }
 
         /* Contact */
-        .contact {
-            padding: 100px 50px;
-            background: var(--dark-navy);
-            color: white;
-        }
         .contact-flex {
             display: flex;
             gap: 50px;
             flex-wrap: wrap;
         }
-        .contact-info {
-            flex: 1;
-        }
         .contact-info i {
-            color: var(--accent-orange);
-            margin-right: 10px;
+            color: var(--safety-orange);
+            width: 25px;
         }
-        .contact-form {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .contact-form input, .contact-form textarea {
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
             padding: 14px;
-            border-radius: 8px;
-            border: none;
-            background: rgba(255,255,255,0.1);
-            color: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
             font-family: inherit;
         }
-        .contact-form input::placeholder, .contact-form textarea::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
         .btn-submit {
-            background: var(--accent-orange);
+            background: var(--safety-orange);
             color: white;
             border: none;
-            padding: 14px;
+            padding: 15px 30px;
+            border-radius: 10px;
             font-weight: 700;
-            border-radius: 8px;
             cursor: pointer;
+            width: 100%;
             transition: var(--transition);
         }
 
         footer {
-            background: #0a1520;
-            color: #aaa;
+            background: var(--steel-gray);
+            color: #bbb;
             text-align: center;
             padding: 30px;
         }
 
+        /* Mobile responsive */
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 25px;
+                padding: 12px 20px;
             }
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--deep-blue);
+                flex-direction: column;
+                padding: 25px;
+                gap: 20px;
             }
-            .menu-toggle {
+            .hamburger {
                 display: block;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
             }
             .about-grid {
                 grid-template-columns: 1fr;
             }
             .hero-stats {
-                gap: 15px;
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+    <div class="preloader" id="preloader">
         <div class="loader-hammer">🔨</div>
-        <div class="loader-text">CAL CAN DO</div>
+        <div class="loader-text">CAL <span>CAN DO</span></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <a href="#" class="logo">
             <div class="logo-icon"><i class="fas fa-hard-hat"></i></div>
@@ -532,148 +494,127 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact" class="btn-nav">Get Quote</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact" class="btn-estimate">Free Estimate</a>
         </div>
-        <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
     </nav>
 
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge"><i class="fas fa-check-circle"></i> BBB Accredited Since 2014</div>
-            <h1>We <span>Build</span> What You <span>Imagine</span></h1>
-            <p>Interior & exterior remodeling that transforms houses into dream homes. Proudly serving Alexandria, KY with 14 years of trusted craftsmanship.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn-primary"><i class="fas fa-hammer"></i> Start Your Project</a>
-                <a href="#about" class="btn-outline">Our Story</a>
+            <h1>Building <span class="highlight">Quality</span> Into Every Home</h1>
+            <p>Expert interior & exterior remodeling in Alexandria, KY. With 14 years of trusted service, we turn your vision into reality—on time, on budget.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary"><i class="fas fa-tools"></i> Start Your Project</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
             </div>
             <div class="hero-stats">
-                <div class="stat-item"><div class="stat-number">14+</div><div class="stat-label">Years in Business</div></div>
-                <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Projects Done</div></div>
-                <div class="stat-item"><div class="stat-number">BBB</div><div class="stat-label">Accredited</div></div>
+                <div><span class="stat-value">14+</span> Years Experience</div>
+                <div><span class="stat-value">BBB</span> Accredited</div>
+                <div><span class="stat-value">100%</span> Satisfaction</div>
             </div>
         </div>
     </section>
 
     <!-- About -->
-    <section class="about" id="about">
-        <div class="section-title"><h2>Built on Trust</h2><div class="underline"></div></div>
-        <div class="about-grid">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=1974&auto=format&fit=crop" alt="Remodeling work">
-                <div class="experience-badge">
-                    <div class="number">14</div>Years
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title"><h2>Trusted Since 2010</h2><div class="divider"></div></div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" alt="Construction professional">
                 </div>
-            </div>
-            <div class="about-text">
-                <h3>Cal Can Do Construction LLC</h3>
-                <p>Since 2010, we've been Alexandria's go-to for premium interior and exterior remodeling. Whether it's a kitchen transformation, bathroom upgrade, or complete home exterior makeover, we deliver quality that stands the test of time. Our team combines old-school work ethic with modern design.</p>
-                <p>📍 Alexandria, KY 41001-7226</p>
-                <div class="bbb-badge">
-                    <i class="fas fa-award" style="color: #2d4f7c; font-size: 1.5rem;"></i> BBB Accredited Since 4/17/2014
+                <div class="about-text">
+                    <h3>Cal Can Do Construction LLC</h3>
+                    <p>Based in Alexandria, KY, we've spent 14 years perfecting the art of remodeling. From kitchen overhauls to complete exterior transformations, our crew treats every home like our own. We believe in clear communication, fair pricing, and flawless execution.</p>
+                    <p>📍 <strong>Alexandria, KY 41001-7226</strong></p>
+                    <div class="bbb-accred"><i class="fas fa-award" style="color:#1e3a5f;"></i> BBB Accredited Since April 17, 2014</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services -->
-    <section class="services" id="services">
-        <div class="section-title"><h2>What We Do Best</h2><div class="underline"></div></div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
-                <h4>Interior Remodeling</h4>
-                <p>Kitchens, bathrooms, basements – we handle all interior upgrades with precision and care.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-home"></i></div>
-                <h4>Exterior Remodeling</h4>
-                <p>Siding, decks, roofing, and windows to boost curb appeal and protect your investment.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-                <h4>Custom Renovations</h4>
-                <p>Tailored solutions that match your vision, from design to final nail.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-tools"></i></div>
-                <h4>Repairs & Upgrades</h4>
-                <p>Small fixes to major overhauls – we bring life back to every corner of your property.</p>
+    <section class="section" id="services" style="background:#f9f9fb;">
+        <div class="container">
+            <div class="section-title"><h2>Our Remodeling Services</h2><div class="divider"></div></div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon"><i class="fas fa-paint-roller"></i></div><h4>Interior Remodeling</h4><p>Kitchens, bathrooms, basements—complete interior makeovers with modern finishes.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-home"></i></div><h4>Exterior Remodeling</h4><p>Siding, roofing, decks, and windows that boost curb appeal and durability.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-drafting-compass"></i></div><h4>Custom Design</h4><p>Tailored renovation plans that match your lifestyle and budget perfectly.</p></div>
+                <div class="service-card"><div class="service-icon"><i class="fas fa-tools"></i></div><h4>Repairs & Upgrades</h4><p>From drywall fixes to flooring, we handle all property improvements big and small.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Projects -->
-    <section class="projects" id="projects">
-        <div class="section-title"><h2>Recent Transformations</h2><div class="underline"></div></div>
-        <div class="project-grid">
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1560185007-5f0bb1866cab?q=80&w=2070&auto=format&fit=crop" alt="Kitchen remodel">
-                <div class="project-overlay"><h4>Modern Kitchen</h4><p>Alexandria, KY</p></div>
-            </div>
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1600585153490-76fb20a32601?q=80&w=2070&auto=format&fit=crop" alt="Bathroom">
-                <div class="project-overlay"><h4>Spa Bathroom</h4><p>Interior Remodel</p></div>
-            </div>
-            <div class="project-item">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="Exterior">
-                <div class="project-overlay"><h4>Deck & Siding</h4><p>Exterior Upgrade</p></div>
+    <!-- Why Us -->
+    <section class="section why-us" id="why">
+        <div class="container">
+            <div class="section-title"><h2 style="color:white;">Why Choose Cal Can Do</h2><div class="divider"></div></div>
+            <div class="why-grid">
+                <div class="why-card"><i class="fas fa-clock"></i><h4>14 Years of Mastery</h4><p>Longevity that proves our commitment to quality and reliability.</p></div>
+                <div class="why-card"><i class="fas fa-shield-alt"></i><h4>BBB Accredited</h4><p>A+ rating and ethical standards you can count on since 2014.</p></div>
+                <div class="why-card"><i class="fas fa-handshake"></i><h4>Client-First Approach</h4><p>We listen, adapt, and deliver exactly what you envision.</p></div>
+                <div class="why-card"><i class="fas fa-medal"></i><h4>Premium Materials</h4><p>We never cut corners—only the best products for lasting results.</p></div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="section-title"><h2 style="color:white;">Let's Build Together</h2><div class="underline"></div></div>
-        <div class="contact-flex">
-            <div class="contact-info">
-                <h3>Cal Can Do Construction LLC</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Alexandria, KY 41001-7226</p>
-                <p><i class="fas fa-calendar-check"></i> BBB Accredited Since 4/17/2014</p>
-                <p><i class="fas fa-clock"></i> 14 Years of Trusted Service</p>
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title"><h2>Request Your Free Estimate</h2><div class="divider"></div></div>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Alexandria, KY 41001-7226</p>
+                    <p><i class="fas fa-calendar-check"></i> BBB Accredited Since 2014</p>
+                    <p><i class="fas fa-clock"></i> 14 Years of Service</p>
+                    <p>Ready to transform your home? Fill out the form and we'll reply within one business day.</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Phone Number">
+                    <textarea rows="4" placeholder="Describe your project..."></textarea>
+                    <button type="submit" class="btn-submit">Send Request <i class="fas fa-arrow-right"></i></button>
+                </form>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <textarea rows="4" placeholder="Tell us about your project..."></textarea>
-                <button type="submit" class="btn-submit">Request Free Estimate <i class="fas fa-arrow-right"></i></button>
-            </form>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Cal Can Do Construction LLC. All rights reserved. | Alexandria, KY</p>
+        <p>© 2025 Cal Can Do Construction LLC. All rights reserved. | Alexandria, Kentucky</p>
     </footer>
 
     <script>
         // Preloader
         window.addEventListener('load', () => {
-            document.getElementById('preloader').classList.add('fade-out');
+            document.getElementById('preloader').classList.add('hidden');
         });
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 30);
         });
 
-        // Mobile menu toggle (basic)
-        const menuToggle = document.getElementById('menuToggle');
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => {
+        hamburger.addEventListener('click', () => {
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.left = '0';
-            navLinks.style.width = '100%';
-            navLinks.style.background = '#0b1a2e';
-            navLinks.style.padding = '20px';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
