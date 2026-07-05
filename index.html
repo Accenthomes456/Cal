@@ -577,13 +577,21 @@
                     <p><i class="fas fa-phone"></i>(818) 396-7846</p>
                     <p>Ready to transform your home? Fill out the form and we'll reply within one business day.</p>
                 </div>
-                <form class="contact-form" action="https://formspree.io/f/meebnvkk" method="POST" enctype="multipart/form-data" class="p-8">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="tel" placeholder="Phone Number">
-                    <textarea rows="4" placeholder="Describe your project..."></textarea>
-                    <button type="submit" class="btn-submit">Send Request <i class="fas fa-arrow-right"></i></button>
-                </form>
+                <form class="contact-form p-8" action="https://formspree.io/f/meebnvkk" method="POST">
+    
+                    <input type="text" name="full_name" placeholder="Full Name" required>
+
+                    <input type="email" name="email" placeholder="Email Address" required>
+
+                    <input type="tel" name="phone" placeholder="Phone Number">
+
+                    <textarea name="project_details" rows="4" placeholder="Describe your project..."></textarea>
+
+                    <button type="submit" class="btn-submit">
+                            Send Request <i class="fas fa-arrow-right"></i>
+                    </button>
+
+            </form>
             </div>
         </div>
     </section>
