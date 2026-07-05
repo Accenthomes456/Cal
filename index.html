@@ -619,6 +619,35 @@
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
+        const form = document.querySelector(".contact-form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+        
+            const data = {
+                full_name: form.full_name.value,
+                email: form.email.value,
+                phone: form.phone.value,
+                project_details: form.project_details.value
+            };
+        
+            const response = await fetch("https://formspree.io/f/meebnvkk", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+        
+            if (response.ok) {
+                alert("Message sent successfully!");
+                form.reset();
+            } else {
+                alert("Failed to send message.");
+            }
+        });
+
         // Close mobile menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
